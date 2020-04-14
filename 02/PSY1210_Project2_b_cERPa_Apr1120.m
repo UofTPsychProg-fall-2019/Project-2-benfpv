@@ -74,7 +74,7 @@ disp('(0) Setting up');
 os = 1; % Operating system (1 Mac, 2 Windows)
 
 %% Which Analyses to Run?
-run_analyses = 3; % 1 Sub only, 2 Grand only, 3 Both. 0 None.
+run_analyses = 2; % 1 Sub only, 2 Grand only, 3 Both. 0 None.
 run_hilbert = 1; % 1 Run amplitude/phase analysis (via trial by trial hilbert transform). 0 None.
 run_plv = 1; % 1 Run PLV analysis (trial by trial phase-locking-value). 0 None.
 run_plot = 2; % 1 Plot ERP, 2 Draw Surfacemap. 0 None.
@@ -938,9 +938,7 @@ end
     disp('(5) Hilbert: Output amplitude & phase');
     
 if run_hilbert == 1
-    if save_raw_data_files == 1
-        load exp_EEG_lm;
-    end
+    load exp_EEG_lm;
     % Band-pass transform trial-by-trial
     for condition = 1:1:length(hilb_conditions) % For each condition of interest
         condition_name = char(hilb_conditions(condition,:));
